@@ -1,0 +1,84 @@
+stuff
+
+
+steps & calories from json file.
+https://github.com/m-rstewart/Fitness/blob/master/public/steps/steps.controller.js
+
+
+for fitness center stuff maybe:
+https://github.com/ArcheGalla/fitness/tree/master/src/app/components check whole project
+
+@todo add fitness calculator. Really easy. plain JS / HTML
+https://github.com/jwetzel22/fitness/blob/master/index.html
+
+Other way to calculate BMR
+https://github.com/t-neu/fitness/blob/master/app/Resources/views/calculation/index.html.twig
+
+a lot of things, but not necessary right now https://github.com/reagan-lopez/fitnessgeek/blob/master/assets/www/js/fitnessgeek.js
+
+maybe later use this stuff to count calories burn
+https://github.com/szigyi/fitness-tracking/blob/master/src/main/webapp/js/App.js
+
+really not neccarry for me right now
+But maybe must have.
+Good stuff at app.js
+
+something related to laps
+https://github.com/Sneaver/fitlist/blob/master/server/server.js
+don't understand it well
+Looks like for running only
+
+Lists running activities and calculated fitness values
+>> can be used with GarminActivityWatcher I think
+Sound Interesting
+
+
+maybe later.
+shit for first 5-10 versions
+https://github.com/chrisbarber7/FitnessViewer/blob/master/FitnessViewer/Views/Settings/BikeFTP.cshtml
+
+about biking
+https://github.com/elliotaplant/bike-across-america/blob/master/server/users/userModel.js
+
+how builded fitness goal management
+https://nachapp.com/
+
+challenge management:
+https://github.com/search?l=JavaScript&q=challenge+language%3Ajavascript&type=Repositories&utf8=%E2%9C%93
+https://github.com/OmniAstronauts/Challenge/blob/master/models/index.js
+https://github.com/OrbitingKittens/challenge/blob/master/models/challenges.js
+
+
+
+USE THIS APPROACH TO LAUNCH FIRST VERSION OF WORKOUT TRACKER
+https://github.com/stevennnguyen/gainztracker/blob/master/src/views/pages/workoutListView.ejs
+
+
+https://developers.betterworks.com/ not sure about price
+http://developer.ihealthlabs.com/index.htm
+
+subscription stuff https://github.com/deitch/subscriber
+
+https://codewithintent.com/mean-io-tutorial-building-goals-application-from-scratch-part-1/
+
+
+meal planner https://github.com/danielberkompas/meal-planner
+
+
+----------------
+JS online timer for fitness things.
+
+https://github.com/albert-gonzalez/easytimer.js/blob/master/test/timer.spec.html
+http://www.findaspring.com/
+
+https://github.com/wger-project/wger
+use it like stuff for motivation to builds saas somethng
+
+
+Timer for Tabata
+https://fitlb.com/tabata-timer
+
+Sound
+http://ionden.com/a/plugins/ion.sound/en.html
+
+http://www.tabatatimer.com/

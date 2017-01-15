@@ -1,0 +1,87 @@
+<div class="container" ng-click="resetForm()">
+	
+	<!-- header and exercise count-->
+	<div class="jumbotron text-center top30">
+        <h1>Workout Tracker <img id="logo" src="img/logo-transparent.png"></h1>
+        # of exercises: <span class="label label-info">{{ exercises.length }}</span>
+            <br>
+            <a href="#/">Routine</a>
+            <a href="#food">Diet</a>
+    </div>
+    <!-- exercises variable located in scope-->
+
+    <div class="row">
+        <center><a class="btn-lg btn btn-info" role="button" ng-click="displayAll()">All Days</a></center>
+    </div>
+
+    <div class="row top30">
+        <div class="col-xs-12">
+            <!-- add in blocks for each day of the week here -->
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-info" role="button" ng-click="setDate('mon')">Monday</a>
+                <a class="btn btn-primary" role="button" ng-click="setDate('tue')">Tuesday</a>
+                <a class="btn btn-success" role="button" ng-click="setDate('wed')">Wednesday</a>
+                <a class="btn btn-default" role="button" ng-click="setDate('thur')">Thursday</a>
+                <a class="btn btn-warning" role="button" ng-click="setDate('fri')">Friday</a>
+                <a class="btn btn-danger" role="button" ng-click="setDate('sat')">Saturday</a>
+                <a class="btn btn-sample" role="button" ng-click="setDate('sun')">Sunday</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FORM TO CREATE EXERCISES -->
+    <div class="row">
+        <div class="col-sm-7 text-center top30" ng-show="!hideForm">
+            <form>
+            <!-- stop propagation stops form from clearing when clicking outside and not editing -->
+                <div class="form-group" ng-click="$event.stopPropagation()">
+
+                    <!-- BIND THIS VALUE TO formData.name IN ANGULAR -->
+                    <input type="text" id="name" class="form-control input-lg text-center" placeholder="Name" ng-model="formData.name"><br>
+                    <!-- ng-model binds the input to an attribute named text inside of the formData array-->
+                    <input type="text" id="weight" class="form-control input-lg text-center" placeholder="Weight" ng-model="formData.weight"><br>
+                    <input type="text" id="sets" class="form-control input-lg text-center" placeholder="Sets" ng-model="formData.sets"><br>
+                    <input type="text" id="reps" class="form-control input-lg text-center" placeholder="Repititions" ng-model="formData.reps"><br>
+                </div>
+
+                <!-- createToDo() WILL CREATE NEW TODOS -->
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createExercise()">Add</button>
+                <!-- Edit button enabled only when clicking row-->
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="editConfirm()" ng-class="{'disabled':$index == selectedRow}">Edit</button>
+
+            </form>
+        </div>
+
+        <!-- add class col-sm-12 if hideForm is true so table stretches all the way across -->
+        <div class="col-sm-5 top30" ng-class="{'col-sm-12': hideForm}">
+
+            <!-- Panel adds rounded corners-->
+            <div id="table" class="panel panel-default">
+                <table class="table center-text" ng-click="$event.stopPropagation()" text-align="center">
+                    <tr>
+                        <th style="width:22%">Name</th>
+                        <th style="width:22%">Weight</th>
+                        <th style="width:22%">Sets</th>
+                        <th style="width:22%">Reps</th>
+                        <th>Remove</th>
+                    </tr>
+                    <tr ng-repeat="exercise in exercises" ng-click="editExercise(exercise._id); setClickedRow($index)" ng-class="{'selected':$index == selectedRow}">
+                    <!-- class 'selected' is applied to element if $index == selectedRow-->
+                        <td>{{ exercise.name }}</td>
+                        <td>{{ exercise.weight }}</td>
+                        <td>{{ exercise.sets }}</td>
+                        <td>{{ exercise.reps }}</td>
+                        <td>
+                        <span class="glyphicon glyphicon-remove-circle text-danger disabled" aria-hidden="true" ng-click="deleteExercise(exercise._id,exercise.name)"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br><br><br><br><br>

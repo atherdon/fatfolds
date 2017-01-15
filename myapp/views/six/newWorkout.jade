@@ -1,0 +1,213 @@
+<h2><%= user.username %>'s New Workout</h2>
+
+<div id="workoutInfo">
+    <h4>Workout Info</h4>
+    <table>
+        <tr>
+            <% var date = new Date(); %>
+            <td>Date (yyyy-mm-dd):</td>
+            <td><input id="date" type="text" value="<%= date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() %>" /></td>
+        </tr>
+        <tr>
+            <td>Time of Day:</td>
+            <td><select id="timeOfDay">
+                    <option value="EARLY_MORNING">Early Morning</option>
+                    <option value="MORNING">Morning</option>
+                    <option value="AFTERNOON">Afternoon</option>
+                    <option value="LATE_AFTERNOON">Late Afternoon</option>
+                    <option value="EVENING">Evening</option>
+                    <option value="NIGHT">Night</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td>
+                <% if (locations) { %>
+                <select id="location">
+                    <option value="-1">-- Select a location --</option>
+                    <option value="-2" id="newLocation">-- New Location --</option>
+                    <% for (var i = 0; i < locations.length; i++) { %>
+                    <option value="<%= locations[i].ID %>"><%= locations[i].Name %></option>
+                    <% } %>
+                </select>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="newLocationDiv" class="node">
+    New Location:<br>
+    Name: <input id="locationName" type="text" />
+    <button id="newLocationButton">Add</button>
+</div>
+<div id="newLocationOutput" class="node"></div>
+
+<h4>Exercises</h4>
+<table id="exerciseList" class="info">
+    <tr>
+        <th>Exercise</th>
+        <th>Weight</th>
+        <th>Sets</th>
+        <th>Reps</th>
+        <th>Duration</th>
+        <th>Completed</th>
+        <th>Comments</th>
+    </tr>
+</table>
+
+<div id="addExercise">
+    <h4>Add Exercise</h4>
+    <table>
+        <tr>
+            <td>Exercise:</td>
+            <td>Weight:</td>
+            <td>Sets:</td>
+            <td>Reps:</td>
+            <td>Duration (hh:mm:ss):</td>
+            <td>Completed:</td>
+        </tr>
+        <tr>
+            <td>
+                <% if (exercises) { %>
+                    <select id="exercise" name="exercises">
+                        <option value="-1">-- Select an exercise --</option>
+                        <option value="-2" id="newExercise">-- New Exercise --</option>
+                        <% for (var i = 0; i < exercises.length; i++) { %>
+                            <option value="<%= exercises[i].ID %>"><%= exercises[i].Name + ', ' + exercises[i].Type %></option>
+                        <% } %>
+                    </select>
+                <% } %>
+            </td>
+            <td><input id="weight" type="number" value="0" /></td>
+            <td><input id="sets" type="number" value="0" /></td>
+            <td><input id="reps" type="number" value="0" /></td>
+            <td><input id="duration" type="text" value="00:00:00" /></td>
+            <td><input id="completed" type="checkbox"></td>
+        </tr>
+    </table>
+    <div id="newExerciseDiv" class="node">
+        New Exercise:<br>
+        Name: <input id="exerciseName" type="text" />
+        Type: <input id="exerciseType" type="text" />
+        <button id="newExerciseButton">Add</button>
+    </div>
+    <div id="newExerciseOutput" class="node"></div>
+    Comments: <br>
+    <textarea id="comments"></textarea><br>
+    <button id="submitExercise">Add Exercise</button>
+</div>
+<br><br>
+<p id="output" class="node"></p>
+<button id="submitWorkout">Submit Workout</button>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var exercises = new Array();
+        $('#newLocationDiv').hide();
+        $('#newLocationOutput').hide();
+        $('#exerciseList').hide();
+        $('#newExerciseDiv').hide();
+        $('#newExerciseOutput').hide();
+        $('#output').hide();
+        $('#submitExercise').click(function() {
+            var exercise = {
+                exerciseid: $('#exercise').val(),
+                weight: $('#weight').val(),
+                sets: $('#sets').val(),
+                reps: $('#reps').val(),
+                duration: $('#duration').val(),
+                completed: $('#completed').is(':checked') ? 'YES' : 'NO',
+                comments: $('#comments').val()
+            };
+            var index = exercises.push(exercise);
+            console.log(exercise);
+            console.log(index);
+            $('#exerciseList').append(
+                    '<tr ' + (index % 2 === 0 ? 'class="alt"' : '') + ' >' +
+                            '<td>' + $( "#exercise option:selected" ).text() + '</td>' +
+                            '<td>' + exercise.weight + ' lbs</td>' +
+                            '<td>' + exercise.sets + ' sets</td>' +
+                            '<td>' + exercise.reps + ' reps</td>' +
+                            '<td>' + exercise.duration + '</td>' +
+                            '<td>' + exercise.completed + '</td>' +
+                            '<td>' + exercise.comments + '</td>' +
+                    '</tr>'
+            );
+            $('#exerciseList').show();
+            $('#exercise').val('-1');
+            $('#weight').val('0');
+            $('#sets').val('0');
+            $('#reps').val('0');
+            $('#duration').val('00:00:00');
+            $('#completed').prop('checked', false);
+            $('#comments').val('');
+        });
+        $('#submitWorkout').click(function() {
+            console.log(exercises);
+            var workout = {
+                userid: <%= user.userid %>,
+                date: $('#date').val(),
+                timeOfDay: $('#timeOfDay').val(),
+                locationid: $('#location').val()
+            };
+            var payload = {
+                workout: workout,
+                exercises: exercises
+            };
+            $.post('/workout/create', payload, function(data) {
+                $('#output').empty().append(data.message);
+                $('#output').show();
+            });
+        });
+        $('#newLocationButton').click(function() {
+            var newLocation = {
+                name: $('#locationName').val()
+            };
+            $.post('/location/create', newLocation, function(data) {
+                console.log(data);
+                $('#newLocationOutput').html(data.message);
+                $('#newLocationDiv').hide();
+                $('#newLocationOutput').show();
+                if (data.err === false) {
+                    $('#location').append('<option value="' + data.id + '">' + newLocation.name + '</option>');
+                    $('#location').val(data.id);
+                }
+            });
+        });
+        $('#newExerciseButton').click(function() {
+            var newExercise = {
+                name: $('#exerciseName').val(),
+                type: $('#exerciseType').val()
+            };
+            $.post('/exercise/create', newExercise, function(data) {
+                console.log(data);
+                $('#newExerciseOutput').html(data.message);
+                $('#newExerciseDiv').hide();
+                $('#newExerciseOutput').show();
+                if (data.err === false) {
+                    $('#exercise').append('<option value="' + data.id + '">' + newExercise.name + ', ' +
+                                            newExercise.type + '</option>');
+                    $('#exercise').val(data.id);
+                }
+            });
+        });
+        $('#location').change(function() {
+            if ($('#location').val() === '-2') {
+                $('#newLocationDiv').show();
+            } else {
+                $('#newLocationDiv').hide();
+                $('#newLocationOutput').hide();
+            }
+        });
+        $('#exercise').change(function() {
+            if ($('#exercise').val() === '-2') {
+                $('#newExerciseDiv').show();
+            } else {
+                $('#newExerciseDiv').hide();
+                $('#newExerciseOutput').hide();
+            }
+        });
+    });
+</script>

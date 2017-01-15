@@ -1,0 +1,26 @@
+extends layoutStepsCalories
+
+block content
+
+  h1 Timer
+    #clockdiv
+    div
+      span.hours
+      .smalltext Hours
+  
+    div
+      span.minutes
+      .smalltext Minutes
+
+    div
+      span.seconds
+      .smalltext Seconds
+
+
+    #chronoExample
+      .values 00:00:00
+      div
+        button.startButton Start
+        button.pauseButton Pause
+        button.stopButton  Stop
+    

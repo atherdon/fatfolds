@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')    
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    //- link(rel='stylesheet', href='/stylesheets/fintess.css')
+
+    
+
+
+  body
+    block content
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js')
+  //- script(src='/javascripts/wizard/bootstrap.min.js')
+
+  script(src='https://code.highcharts.com/highcharts.js')
+  script(src='https://code.highcharts.com/highcharts-3d.js')
+  script(src='https://code.highcharts.com/highcharts-more.js')
+  script(src='https://code.highcharts.com/modules/solid-gauge.js')
+
+  script(type='text/javascript').
+    var local_data =!{JSON.stringify(data)}
+
+  //- steps
+  script(src='/javascripts/three/steps.js')    
+  script(src='/javascripts/three/gauge.js')  
+
+  //- calories
+  script(src='/javascripts/three/chart.js')    
+  script(src='/javascripts/three/chart2.js') 
+
+  script(src='/javascripts/easytimer.js')      
+  script(src='/javascripts/timer-init.js') 
