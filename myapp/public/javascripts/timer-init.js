@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 // http://albert-gonzalez.github.io/easytimer.js/
-	var average = local_data.average;
+	// var average = local_data.average;
 
 	var timer = new Timer();
 	$('#chronoExample .startButton').click(function () {
