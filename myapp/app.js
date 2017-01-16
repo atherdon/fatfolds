@@ -24,7 +24,7 @@ db.once('open', function() {
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var users = require('./routes/measurements');
+// var users = require('./routes/measurements');
 
 var app = express();
 

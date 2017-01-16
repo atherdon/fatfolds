@@ -243,4 +243,34 @@ router.get('/timer', function(req, res, next) {
 
 });
 
+router.get('/savec', function(req, res, next) {
+
+	var firstRow  = new Steps({
+	     steps : 8000,
+
+	});
+
+	firstRow.save(function(err){
+		if (err) throw err;
+
+  		console.log('Steps created!');
+	});
+
+	console.log( firstRow );
+
+	res.render('index', {
+		title   : 'Express',
+		// message : message,
+		// goal    : goal,
+		// number  : number,
+		// data: {
+		// 	steps  : steps,
+		// 	target : target,
+		// 	average  : average,
+		// } 
+	});
+
+
+});
+
 module.exports = router;
