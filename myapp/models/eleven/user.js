@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var WeightSchema = new Schema({
 	
 	weight : Number,
-	created_at: Date,
+	created_at: { type: Date, default: Date.now },
 	
 });
 //create method for display date + weight + 'lbs' string
@@ -14,7 +14,7 @@ var WeightSchema = new Schema({
 var NeckSchema = new Schema({
 
 	neck : Number,
-	created_at: Date,
+	created_at: { type: Date, default: Date.now },
 	
 });
 //create method for display date + neck + 'in' string
@@ -22,10 +22,8 @@ var NeckSchema = new Schema({
 var ChestSchema = new Schema({
 	
 	chest : Number,
-	created_at: Date,
+	created_at: { type: Date, default: Date.now },
 
-	
-	
 });
 //create method for display date + neck + 'in' string
 
@@ -33,9 +31,7 @@ var ChestSchema = new Schema({
 var BicepSchema = new Schema({
 	
 	bicep : Number,
-	created_at: Date,
-
-	
+	created_at: { type: Date, default: Date.now },
 	
 });
 //create method for display date + neck + 'in' string
@@ -44,10 +40,8 @@ var BicepSchema = new Schema({
 var WaistSchema = new Schema({
 	
 	waist : Number,
-	created_at: Date,
+	created_at: { type: Date, default: Date.now },
 
-	
-	
 });
 //create method for display date + waist` + 'in' string
 
@@ -55,9 +49,7 @@ var WaistSchema = new Schema({
 var HipsSchema = new Schema({
 	
 	hips : Number,
-	created_at: Date,
-
-	
+	created_at: { type: Date, default: Date.now },
 	
 });
 //create method for display date + hips + 'in' string
@@ -66,9 +58,7 @@ var HipsSchema = new Schema({
 var ThighSchema = new Schema({
 	
 	thigh : Number,
-	created_at: Date,
-
-	
+	created_at: { type: Date, default: Date.now },
 	
 });
 //create method for display date + thigh + 'in' string
@@ -109,7 +99,9 @@ var UserSchema = new Schema({
     meta: {
 	    // votes: Number,
 	    favs:  Number
-	}
+	},
+
+	created_at: { type: Date, default: Date.now },
 
 
 

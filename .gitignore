@@ -17,3 +17,5 @@ myapp/data/sizeStorer.wt
 myapp/data/WiredTigerLAS.wt
 myapp/data/WiredTiger.turtle
 myapp/data/_mdb_catalog.wt
+myapp/data/index-6--209261804236465054.wt
+myapp/data/collection-5--209261804236465054.wt
