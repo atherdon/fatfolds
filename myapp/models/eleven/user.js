@@ -3,15 +3,17 @@ var mongoose = require('mongoose'),
 
 //Note a lot of inportant(maybe) methods for users located at: /four/users1.js
 
+var timestampObject = {
+		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
+	};
+
 var WeightSchema = new Schema({
 	
 	weight : Number,
 	// created_at: { type: Date, default: Date.now },
 	
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + weight + 'lbs' string
 
@@ -21,9 +23,7 @@ var NeckSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 	
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + neck + 'in' string
 
@@ -33,9 +33,7 @@ var ChestSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + neck + 'in' string
 
@@ -46,9 +44,7 @@ var BicepSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 	
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + neck + 'in' string
 
@@ -59,9 +55,7 @@ var WaistSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + waist` + 'in' string
 
@@ -72,9 +66,7 @@ var HipsSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 	
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + hips + 'in' string
 
@@ -85,9 +77,7 @@ var ThighSchema = new Schema({
 	// created_at: { type: Date, default: Date.now },
 	
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 //create method for display date + thigh + 'in' string
 
@@ -133,9 +123,7 @@ var UserSchema = new Schema({
 
 
 	},
-	{
-		timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }	
-	}
+	timestampObject
 );
 
 
