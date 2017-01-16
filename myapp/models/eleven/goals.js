@@ -5,13 +5,14 @@ var GoalsSchema = new Schema({
 
 	measurements_id: String,
 	months: {
-		month1,
-		month2,
-		month3,
-		month4,
-		month5,
-		month6
+		month1: String,
+		month2: String,
+		month3: String,
+		month4: String,
+		month5: String,
+		month6: String,
 	},
+	main: String,
 
 
 	// Name and Age

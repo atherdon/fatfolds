@@ -10,7 +10,7 @@ var router  = express.Router();
 // this router related to measurements part.
 // models used from folder "eleven"
 
-/* GET users listing. */
+/* GET measurements listing. */
 router.get('/', function(req, res, next) {
 
 	

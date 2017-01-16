@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var MeasurementsSchema = new Schema({
+	
 	weight : String, //pounds
 	neck   : String,//inches
 	chest  : String, //inches
