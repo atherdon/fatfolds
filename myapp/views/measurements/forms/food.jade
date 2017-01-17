@@ -1,1 +1,55 @@
-food.jade
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  .row
+    .col-sm-6
+
+    .col-sm-6
+      img(src='')
+
+
+
+  form#formSubmit(name="formsubmit", method="post", action="/insert")
+
+    
+    label meal:
+    input#inputW(type="text", placeholder="Enter your meal", name="meal")
+    br
+
+    label food:
+    input#inputN(type="text", placeholder="food", name="food")
+    br
+
+    label calories:
+    input#inputC(type="text", placeholder="calories", name="calories")
+    br
+
+    label cholesterol:
+    input#inputB(type="text", placeholder="cholesterol", name="cholesterol")
+    br
+
+    label sodium:
+    input#inputWaist(type="text", placeholder="sodium", name="sodium")
+    br
+
+    label carbs:
+    input#inputHips(type="text", placeholder="carbs", name="carbs")
+    br
+
+    label protein:
+    input#inputThigh(type="text", placeholder="protein", name="protein")
+    br
+
+    label sugar:
+    input#inputThigh(type="text", placeholder="sugar", name="sugar")
+    br
+
+    label fiber:
+    input#inputThigh(type="text", placeholder="fiber", name="fiber")
+    br
+
+
+    button#btnSubmit(type="submit") submit
