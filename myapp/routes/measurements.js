@@ -3,7 +3,7 @@ var router  = express.Router();
 
 //models
 // var Steps    = require('../models/three/steps');
-// var Calories = require('../models/three/calories');
+var Users = require('../models/eleven/users');
 
 
 
@@ -13,10 +13,14 @@ var router  = express.Router();
 /* GET measurements listing. */
 router.get('/', function(req, res, next) {
 
+
+	var B = new Users();
+
+	B.getLastValue('jaja');
 	
 
   // res.send('respond with a resource');
-	res.render('indexCalories', {
+	res.render('index', {
 		title   : 'Express',
 		// message : message,
 		// goal    : goal,

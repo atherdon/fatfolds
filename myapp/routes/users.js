@@ -273,4 +273,11 @@ router.get('/savec', function(req, res, next) {
 
 });
 
+
+router.get('/insertMeasurements', function(req, res, next){
+
+
+
+});
+
 module.exports = router;
