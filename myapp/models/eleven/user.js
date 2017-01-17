@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
-    Schema   = mongoose.Schema;
-
+    Schema   = mongoose.Schema,
+    moment   = require('moment');
 //Note a lot of inportant(maybe) methods for users located at: /four/users1.js
 
 var options = {
@@ -182,6 +182,35 @@ UserSchema.methods.startingStats = function (){
 		[ label: 'Hips',     current: this.getLastValue('hips')   , goal: this.goals.hips ],
 		[ label: 'Thigh',    current: this.getLastValue('thigh')  , goal: this.goals.thigh ],
 	}
+
+};
+
+UserSchema.methods.display = function ( type ){
+
+	var array = [];
+
+	var values = this.type;
+
+	for (var i = values.length - 1; i >= 0; i--) {
+		 array.unshift( values[i] ) ;
+
+		 var item = values[i];
+		 var date = item.created_at.format('YYYY-DD-MM');
+		 var time = item.created_at.format('h:mm:ss a');
+		 var goal = this.goal.type;
+
+		 console.log(date);
+		 console.log(time);
+		 console.log(goal);
+		 // var date = item.created_at.format('DD/MM/YYYY')
+
+		 array.unshift( [ date: date, time:time, goal:goal  ] ) ;
+		 console.log( values[i] );
+	}
+
+	console.log( array );
+
+	return array;
 
 };
 
