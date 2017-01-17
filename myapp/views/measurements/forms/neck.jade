@@ -7,15 +7,9 @@ block content
   
   form#formSubmit(name="formsubmit", method="post", action="/insert")
 
-    select(name="gender")
-      option(value="Male")   Male 
-      option(value="Female") Female 
-    
-    label Age:
-    input#inputUrl(type="text", placeholder="Youtube Url", name="url")
+
+    label Neck:
+    input#inputN(type="text", placeholder="Neck", name="neck")
     br
-    input#inputStart(type="text", placeholder="Start Time", name="start")
-    br
-    input#inputEnd(type="text", placeholder="End Time", name="end")
-    br
+
     button#btnSubmit(type="submit") submit

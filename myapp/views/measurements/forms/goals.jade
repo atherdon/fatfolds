@@ -5,17 +5,35 @@ block content
   p Welcome to #{title}
 
   
-  form#formSubmit(name="formsubmit", method="post", action="/insert")
+  form#formSubmit(name="formsubmit", method="post", action="/insertGoal")
 
-    select(name="gender")
-      option(value="Male")   Male 
-      option(value="Female") Female 
-    
-    label Age:
-    input#inputUrl(type="text", placeholder="Youtube Url", name="url")
+    label Weight:
+    input#inputW(type="text", placeholder="", name="weight")
     br
-    input#inputStart(type="text", placeholder="Start Time", name="start")
+
+    label Neck:
+    input#inputN(type="text", placeholder="", name="neck")
     br
-    input#inputEnd(type="text", placeholder="End Time", name="end")
+
+    label Chest:
+    input#inputC(type="text", placeholder="", name="chest")
     br
+
+    label Bicep:
+    input#inputB(type="text", placeholder="", name="bicep")
+    br
+
+    label Waist:
+    input#inputWaist(type="text", placeholder="", name="waist")
+    br
+
+    label Hips:
+    input#inputHips(type="text", placeholder="", name="hips")
+    br
+
+    label Thigh:
+    input#inputThigh(type="text", placeholder="", name="thigh")
+    br
+
+
     button#btnSubmit(type="submit") submit
