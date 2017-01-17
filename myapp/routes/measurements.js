@@ -3,7 +3,8 @@ var router  = express.Router();
 
 //models
 // var Steps    = require('../models/three/steps');
-var Users = require('../models/eleven/users');
+// var Weight = require('../models/eleven/Aweight');
+var Users  = require('../models/eleven/user');
 
 
 
@@ -17,6 +18,10 @@ router.get('/', function(req, res, next) {
 	var B = new Users();
 
 	B.getLastValue('jaja');
+
+	var new_weight = new Weight({ weight:70 });
+
+	B.weight.push( new_weight );
 	
 
   // res.send('respond with a resource');
@@ -122,5 +127,51 @@ router.get('/timer', function(req, res, next) {
 	});
 
 });
+
+router.get('/add/:type', function(req, res, next){
+
+	$type = false;
+
+	if(  $type == '' ){
+
+		res.render('timer', {
+			title   : 'Express',
+
+		});
+
+	}
+
+	if(  $type == '' ){
+
+		res.render('timer', {
+			title   : 'Express',
+
+		});
+
+	}
+
+	if(  $type == '' ){
+
+		res.render('timer', {
+			title   : 'Express',
+
+		});
+
+	}
+
+	if(  $type == '' ){
+
+		res.render('timer', {
+			title   : 'Express',
+
+		});
+
+	}
+
+
+
+});
+
+
 
 module.exports = router;

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  p Nutrition targets
+
+
+   
+
+
+  div
+    table
+      thead
+        tr: th 
+        tr: th Calories
+        tr: th Fat
+        tr: th Cholesterol
+        tr: th Sodium
+        tr: th Carbs
+        tr: th Protein
+        tr: th Sugar
+        tr: th Fiber
+
+      tbody
+        each data, i in targets
+          tr
+            td Daily intake: #{}
+            td #{data.type}
+            td #{data.total} 
+            td #{data.all} 
+

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p About Me
+
+
+   
+
+
+  div
+    table
+      thead
+        tr: th Activities
+        tr: th Total
+        tr: th Unit
+      tbody
+        each data, i in activities
+          tr
+            td #{data.type}
+            td #{data.total} 
+            td #{data.unit} 
+

@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p About Me
+
+
+   
+
+
+  div
+    table
+      thead
+        tr: th Date
+        tr: th Activity
+        tr: th Start Time
+        tr: th Duration
+        tr: th Distance
+        tr: th Calories
+        tr: th Note
+
+      tbody
+        each data, i in activities
+          tr
+            td #{data.date}
+            td #{data.type} 
+            td #{data.start} 
+            td #{data.duration} 
+            td #{data.distance} 
+            td #{data.calories} 
+            td #{data.note} 
+
+
