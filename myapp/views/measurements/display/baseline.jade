@@ -2,15 +2,21 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p About Me
 
 
-div
-  table
-    thead
-      tr: th Posts
-    tbody
-      each post, i in userPosts
-        tr
-          td 
-            a(href='/admin/post/' + post.id) #{post.author} - #{post.title}
+   
+
+
+  div
+    table
+      thead
+        //- tr: th Posts
+        //- tr: th Posts
+      tbody
+        each data, i in baselineValues
+          tr
+            td #{data.label}
+            td #{data.value} 
+
+            

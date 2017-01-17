@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  h1= title
+  p Add activity
+
+  
+  form#formSubmit(name="formsubmit", method="post", action="/insertActivity")
+
+    label Activity:
+    select(name="type")
+      option(value="walking") Walking
+      option(value="running") Running
+      option(value="swimming") Swimming
+      option(value="running") Swimming
+
+    br
+
+    label Start Time:
+    input#inputS(type="text", placeholder="", name="starttime")
+    br
+
+    label Duration:
+    input#inputDuration(type="text", placeholder="", name="duration")
+    br
+
+    label Distance:
+    input#inputDistance(type="text", placeholder="", name="distance")
+    br
+
+    label Calories:
+    input#inputC(type="text", placeholder="", name="calories")
+    br
+
+    label Note:
+    textarea#notes(type="text", placeholder="", name="note")
+    br
+
+    button#btnSubmit(type="submit") submit

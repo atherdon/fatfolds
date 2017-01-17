@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  
+  form#formSubmit(name="formsubmit", method="post", action="/add-activity-type")
+
+    label Activity Name:
+    input#inputN(type="text", placeholder="Bicep", name="name")
+    br
+    
+    label Unit:
+    input#inputU(type="text", placeholder="Bicep", name="unit")
+    br
+    
+    button#btnSubmit(type="submit") submit
