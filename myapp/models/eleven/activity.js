@@ -15,6 +15,41 @@ ActivitySchema.methods.total = function (types){
 
 };
 
+ActivitySchema.methods.getInfoByType = function (types){
+
+};
+
+ActivitySchema.methods.displayAllActivities = function (){};
+
+ActivitySchema.methods.displayAllActivitiesMonth = function (){};
+
+ActivitySchema.methods.displayByType        = function (type){};
+
+ActivitySchema.methods.displayByTypeMonth   = function (type){};
+
+ActivitySchema.methods.countActivityTotal   = function (type){};
+
+ActivitySchema.methods.displayColumn   = function (type){
+
+	return {
+		[ type: false, units: { name: false, total: false }, calories: { name: false, total: false } ],
+		[ type: false, units: { name: false, total: false }, calories: { name: false, total: false } ],
+
+	}
+
+};
+
+ActivitySchema.methods.displayGraph   = function (){
+
+	// get total calories by type
+
+	return {
+		[ total: false, value: false ],
+		[ total: false, value: false ],
+		[ total: false, value: false ],
+	}
+
+};
 
 // using this method for building table at views
 ActivitySchema.methods.display = function (){

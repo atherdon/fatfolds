@@ -1,0 +1,62 @@
+extends layout
+
+block content
+  h1= title
+  p About Me
+
+
+  .row
+    .col-md-5
+
+      h4 Activity Tracker
+      p Track your top 5 activities! Swap the activity info below with the activities you do the most. Then, add entries for them to the activity log to track your progress.
+
+      .row
+
+        each data, i in activitiesTop
+		  .col-md-6
+
+		    #{data.type}
+
+		  .col-md-3
+		    #{data.units.total}
+		    #{data.calories.total}
+
+		  .col-md-3
+		  	#{data.units.title}
+		  	#{data.calories.title}
+
+	  .row  	
+	    .col-md-6 Total
+
+	    .col-md-3 #{caloriesTotal}
+
+	    .col-md-3 Calories
+
+    .col-md-8   
+
+
+  div
+    table
+      thead
+        tr: th Date
+        tr: th Activity
+        tr: th Start Time
+        tr: th Duration
+        tr: th Distance
+        tr: th Calories
+        tr: th Note
+
+      tbody
+        each data, i in activities
+          tr
+            td #{data.date}
+            td #{data.type} 
+            td #{data.start} 
+            td #{data.duration} 
+            td #{data.distance} 
+            td #{data.calories} 
+            td #{data.note} 
+
+
+   #graph-total-calories-by-activity-type
