@@ -19,10 +19,14 @@ router.get('/', function(req, res, next) {
 
 	B.getLastValue('jaja');
 
+
 	var new_weight = new Weight({ weight:70 });
 
 	B.weight.push( new_weight );
 	
+
+
+
 
   // res.send('respond with a resource');
 	res.render('index', {
